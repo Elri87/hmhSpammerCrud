@@ -11,10 +11,7 @@ export default function EditBox({
   setCommentText,
 }) {
   const [editedText, setEditedText] = useState(text);
-  //const [cancelEdit, setCancelEdit] = useState(false);
 
-  //Cancel
-  //const [showComment, setShowComment] = useState(false);
   const router = useRouter();
 
   function handleChange(e) {
@@ -36,20 +33,20 @@ export default function EditBox({
     router.refresh();
   }
 
-  function handleCancel() {
+  /*function handleCancel() {
     //setShowComment(false);
     //setCancelEdit(true);
     //setEditedText("");
     setCommentVisible(false);
     //setCommentVisible("");
     setCommentText("");
-  }
+  }*/
 
   return (
     <div>
       <input type="text" onChange={handleChange} value={editedText} />
       <button onClick={handleEdit}>Edit Post</button>
-      <button onClick={handleCancel}>Cancel</button>
+      <button onClick={() => setId("")}>Cancel</button>
     </div>
   );
 }
