@@ -37,14 +37,18 @@ export default function EditComments({ id, setCommentVisible }) {
   };
 
   return (
-    <div>
+    <div className="editComment-container">
       <input
         type="text"
         onChange={(e) => setCommentText(e.target.value)}
         value={commentText}
       />
-      <button onClick={handleComment}>Comment</button>
-      <button onClick={handleCancel}>Cancel</button>
+      <button onClick={handleComment} className="editComment-button">
+        Comment
+      </button>
+      <button onClick={handleCancel} className="editComment-button">
+        Cancel
+      </button>
     </div>
   );
 }

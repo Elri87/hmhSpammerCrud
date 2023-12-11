@@ -14,7 +14,7 @@ export default async function Home() {
   console.log(posts);
 
   return (
-    <div>
+    <div className="body-container">
       <h1>Spammer</h1>
       <NewMessage />
       <Messages posts={posts} />
