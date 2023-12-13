@@ -45,8 +45,12 @@ export default function EditBox({
   return (
     <div>
       <input type="text" onChange={handleChange} value={editedText} />
-      <button onClick={handleEdit}>Edit Post</button>
-      <button onClick={() => setId("")}>Cancel</button>
+      <button onClick={handleEdit} className="editComment-button">
+        Edit Post
+      </button>
+      <button onClick={() => setId("")} className="editComment-button">
+        Cancel
+      </button>
     </div>
   );
 }
