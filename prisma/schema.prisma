@@ -1,0 +1,36 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "cockroachdb"
+  url      = env("DATABASE_URL")
+}
+
+model Post {
+  id        String    @id @default(uuid())
+  text      String
+  likes     Int       @default(0)
+  createdAt DateTime  @default(now())
+  comments  Comment[]
+  //user User //only 1 user can make a post, either this line or line (post Post[])
+}
+
+model Comment {
+  id        String   @id @default(uuid())
+  text      String
+  createdAt DateTime @default(now())
+  post      Post     @relation(fields: [postId], references: [id], onDelete: Cascade)
+  postId    String
+}
+
+// postId    String?
+//reference: [id], onDelete: Cascade
+
+//api/get-user-post
+//model user {id        String   @id @default(uuid())  userName String @unique  isAdmin  Boolean @default(false)   password String posts Post[]}
+
+//api/users/{id}
