@@ -44,7 +44,12 @@ export default function EditBox({
 
   return (
     <div>
-      <input type="text" onChange={handleChange} value={editedText} />
+      <input
+        type="text"
+        onChange={handleChange}
+        value={editedText}
+        className="comments-container"
+      />
       <button onClick={handleEdit} className="editComment-button">
         Edit Post
       </button>

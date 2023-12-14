@@ -20,7 +20,7 @@ export function Comments({ id }) {
   });
 
   return (
-    <div className="comments-container">
+    <div className="editComment-container">
       <ul className="comments">
         {comment &&
           comment.map((item) => (

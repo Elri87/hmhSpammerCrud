@@ -5,6 +5,8 @@ import API_URL from "@/lib/API-URL.js";
 import DeletePost from "@/components/DeletePost.jsx";
 //import Message from "@/components/Message.jsx";
 
+export const dynamic = "force-dynamic";
+
 export default async function Home() {
   //GET messages
   const res = await fetch(`${API_URL}/api/posts`, { cache: "no-store" });
