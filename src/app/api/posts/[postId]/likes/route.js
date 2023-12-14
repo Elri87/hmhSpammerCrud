@@ -23,7 +23,9 @@ export async function PUT(request, response) {
     }
 
     const updatedLike = await prisma.post.update({
-      where: { id: postId },
+      where: {
+        id: postId,
+      },
       data: { likes: { increment: 1 } },
     });
     return NextResponse.json({ success: true, post: updatedLike });

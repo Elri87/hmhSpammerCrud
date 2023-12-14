@@ -1,6 +1,7 @@
 "use client";
 
-import API_URL from "@/lib/API-URL.js";
+import API_URL from "@/lib/API-URL.js"; //import prisma then this falls away, Max Server
+//import { prisma } from "@/lib/prisma.js";
 
 //Componenet to create a new post
 import { useState } from "react";
