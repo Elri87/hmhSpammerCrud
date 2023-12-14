@@ -1,6 +1,6 @@
 "use client";
 import { useRouter } from "next/navigation.js";
-import API_URL from "@/lib/API-URL.js";
+//import API_URL from "@/lib/API-URL.js";
 import { useState } from "react";
 
 export default function EditBox({
@@ -19,7 +19,7 @@ export default function EditBox({
   }
 
   async function handleEdit() {
-    const response = await fetch(`${API_URL}/api/posts/${id}`, {
+    const response = await fetch(`/api/posts/${id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",

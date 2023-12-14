@@ -1,7 +1,6 @@
 "use client";
 
-import API_URL from "@/lib/API-URL.js"; //import prisma then this falls away, Max Server
-//import { prisma } from "@/lib/prisma.js";
+//import API_URL from "@/lib/API-URL.js"; //import prisma then this falls away, Max Server
 
 //Componenet to create a new post
 import { useState } from "react";
@@ -12,8 +11,6 @@ export default function NewMessage() {
   const [error, setError] = useState("");
   const router = useRouter();
 
-  //const url = "https://spammer-theta.vercel.app/api/posts";
-
   function handleChange(e) {
     setUserInput(e.target.value);
     //console.log(userInput);
@@ -22,7 +19,7 @@ export default function NewMessage() {
   async function handleSubmit(e) {
     e.preventDefault();
     //send request to server to add the message to database
-    const res = await fetch(`${API_URL}/api/posts`, {
+    const res = await fetch(`/api/posts`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

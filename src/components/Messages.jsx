@@ -1,6 +1,6 @@
 "use client";
-import API_URL from "@/lib/API-URL.js";
-//import Message from "./Message.jsx";
+//import API_URL from "@/lib/API-URL.js";
+
 import { AiFillLike } from "react-icons/ai";
 import { MdDelete } from "react-icons/md";
 import { FaCommentDots } from "react-icons/fa";
@@ -18,7 +18,7 @@ export default function Messages({ posts }) {
   const [commentVisible, setCommentVisible] = useState("");
 
   async function incrementLikes(id1) {
-    const response = await fetch(`${API_URL}/api/posts/${id1}/likes`, {
+    const response = await fetch(`/api/posts/${id1}/likes`, {
       method: "POST",
       cache: "no-store",
     });
@@ -26,11 +26,11 @@ export default function Messages({ posts }) {
   }
 
   async function handleDeleteButton(id1) {
-    const response = await fetch(`${API_URL}/api/posts/${id1}`, {
+    const response = await fetch(`/api/posts/${id1}`, {
       method: "DELETE",
       cache: "no-store",
     });
-    const info = await response.json();
+    //const info = await response.json();
     router.refresh();
   }
 

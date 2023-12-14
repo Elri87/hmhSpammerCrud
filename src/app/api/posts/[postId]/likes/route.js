@@ -2,13 +2,13 @@ import { prisma } from "@/lib/prisma.js";
 import { NextResponse } from "next/server.js";
 
 //GET it first
-export async function GET() {
+/*export async function GET() {
   const likes = await prisma.like.findMany();
   return NextResponse.json({ success: true, likes });
-}
+}*/
 
 //PUT /api/posts/{postId}/likes
-export async function PUT(request, response) {
+export async function POST(request, response) {
   try {
     const { postId } = response.params;
     const post = await prisma.post.findFirst({

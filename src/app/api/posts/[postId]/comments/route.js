@@ -7,7 +7,7 @@ export async function GET() {
 }
 //PUT Request
 //http://localhost:3000/api/posts/{id}/comments
-export async function PUT(request, response) {
+export async function POST(request, response) {
   try {
     const { postId } = response.params;
     const { text, createdAt } = await request.json();

@@ -1,13 +1,13 @@
 //"use client";
 import { MdDelete } from "react-icons/md";
 import { useRouter } from "next/router.js";
-import API_URL from "@/lib/API-URL.js";
+//import API_URL from "@/lib/API-URL.js";
 
 export default function DeletePost({ posts }) {
   const router = useRouter();
 
   async function handleDeleteButton() {
-    const response = await fetch(`${API_URL}/api/posts/${posts.id}`, {
+    const response = await fetch(`/api/posts/${posts.id}`, {
       method: "DELETE",
       cache: "no-store",
     });
