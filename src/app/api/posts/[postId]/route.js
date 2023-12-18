@@ -23,9 +23,39 @@ export async function GET(request, response) {
   }
 }
 
-//DELETE Request
-//http://localhost:3000/api/posts/{id}
+//DELETE Request Redo
 export async function DELETE(request, response) {
+  try {
+    const { postId } = response.params;
+    //delete id in db
+    const post = await prisma.post.findFirst({
+      where: {
+        id: postId,
+      },
+    });
+    if (!post) {
+      return NextResponse.json({
+        success: false,
+        message: "No post with that ID found",
+      });
+    }
+
+    const deletePost = await prisma.post.delete({
+      where: {
+        id: postId,
+      },
+    });
+    return NextResponse.json({
+      success: true,
+      deletePost,
+    });
+  } catch (error) {
+    return NextResponse.json({ success: false, error: error.message });
+  }
+}
+
+//http://localhost:3000/api/posts/{id}
+/*export async function DELETE(request, response) {
   try {
     const { postId } = response.params;
     //delete id in db
@@ -47,7 +77,7 @@ export async function DELETE(request, response) {
   } catch (error) {
     return NextResponse.json({ success: false, error: error.message });
   }
-}
+}*/
 
 //PUT Rounte - http://localhost:3000/api/posts/{id}
 export async function PUT(request, response) {
