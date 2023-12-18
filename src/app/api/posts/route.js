@@ -3,8 +3,6 @@ import { NextResponse } from "next/server.js";
 
 //http://localhost:3000/api/posts
 export async function GET() {
-  // how can i use prisma to get the real posts from the db?
-
   try {
     const posts = await prisma.post.findMany({
       orderBy: {

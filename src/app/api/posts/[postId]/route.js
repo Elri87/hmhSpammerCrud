@@ -1,8 +1,39 @@
+import { Comments } from "@/components/Comments.jsx";
 import { prisma } from "@/lib/prisma.js";
 import { NextResponse } from "next/server.js";
 
 //http://localhost:3000/api/posts/{id}
 export async function GET(request, response) {
+  try {
+    const { postId } = response.params;
+
+    const posts = await prisma.post.findFirst({
+      where: { id: postId },
+    });
+
+    if (!posts) {
+      return NextResponse.json({
+        success: false,
+        message: "No post with that ID found.",
+      });
+    }
+    const comments = await prisma.comment.findMany({
+      where: { postId: postId },
+    });
+    if (comments.length == 0) {
+      return NextResponse.json({
+        success: false,
+        error: "This post has no comments",
+      });
+    }
+
+    return NextResponse.json({ success: true, posts, comments });
+  } catch (error) {
+    return NextResponse.json({ success: false, error: error.message });
+  }
+}
+
+/*export async function GET(request, response) {
   try {
     const { postId } = response.params;
 
@@ -21,7 +52,7 @@ export async function GET(request, response) {
   } catch (error) {
     return NextResponse.json({ success: false, error: error.message });
   }
-}
+}*/
 
 //DELETE Request Redo
 export async function DELETE(request, response) {
