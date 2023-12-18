@@ -80,6 +80,11 @@ textarea {
   color: hsl(0, 3%, 6%);
 }
 
+.submit-post-button,
+:hover {
+  cursor: pointer;
+}
+
 .icon-container {
   display: flex;
   gap: 10px;
@@ -98,6 +103,11 @@ textarea {
   box-shadow: inset 0 1px 0 hsla(0, 0%, 100%, 0.1),
     0 0 0 1px hsla(230, 13%, 9%, 0.02), 0 0.3px 0.4px hsla(230, 13%, 9%, 0.025),
     0 1px 3px -1px hsla(230, 13%, 9%, 0.2), 0 3.5px 6px hsla(230, 13%, 9%, 0.12);
+}
+
+.icon-button,
+:hover {
+  cursor: pointer;
 }
 
 .comments-container {
@@ -139,6 +149,11 @@ input {
   box-shadow: inset 0 1px 0 hsla(0, 0%, 100%, 0.15),
     0 1px 3px hsla(250, 76%, 78%, 0.25), 0 2px 6px hsla(250, 53%, 69%, 0.1),
     0 6px 10px -2px hsla(251, 35%, 68%, 0.25);
+}
+
+.editComment-button,
+:hover {
+  cursor: pointer;
 }
 
 li {
